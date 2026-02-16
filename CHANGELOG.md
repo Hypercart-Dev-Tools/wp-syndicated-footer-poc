@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - 2026-02-16
+
+### Added
+- **Syndicated content from CDN** — Created `footer-data.json` with all link data (URLs, labels, tooltips)
+- **React component now fetches link data** — Fetches `footer-data.json` from CDN and merges with local config
+- **True HTML syndication** — Update `footer-data.json`, all React/Lovable sites update automatically
+- **Backward compatibility** — Existing v1.1.0 sites continue working with hardcoded defaults
+
+### Changed
+- **Lovable integration guide** — Updated to v1.2.0 with syndicated data fetching instructions
+- **React component architecture** — Now fetches TWO sources (syndicated data + local config) and merges them
+- **Local config is now optional** — Sites can use syndicated data without creating `footer-config.json`
+
+### Documentation
+- Updated `lovable-footer-guide.md` with v1.2.0 syndicated data approach
+- Added `footer-data.json` to repository structure
+- Updated testing checklist to include CDN data verification
+- Added troubleshooting section for syndicated data loading
+
+---
+
 ## [1.1.0] - 2026-02-16
 
 ### Added

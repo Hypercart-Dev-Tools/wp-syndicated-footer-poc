@@ -101,9 +101,9 @@ function hc_footer_fallback_html() {
         <span class="hc-tooltip">Converts your Lovable code into Huggable code</span>
         Love2Hug <span class="hc-arrow">↗</span>
       </a>
-      <a href="https://getdashboard.com" class="hc-footer__product" target="_blank" rel="noopener">
+      <a href="https://getdashboard.net" class="hc-footer__product" target="_blank" rel="noopener">
         <span class="hc-tooltip">All orgs, repos, issues &amp; PRs in a single view</span>
-        GetDashboard <span class="hc-arrow">↗</span>
+        GetDashboard.net <span class="hc-arrow">↗</span>
       </a>
     </div>
     <div class="hc-footer__row2">

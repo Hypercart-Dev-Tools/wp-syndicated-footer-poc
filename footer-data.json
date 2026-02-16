@@ -1,0 +1,57 @@
+{
+  "version": "1.2.0",
+  "lastUpdated": "2026-02-16",
+  "network": {
+    "label": "4x4Sys Network",
+    "url": "https://4x4sys.com"
+  },
+  "products": {
+    "clarity": {
+      "label": "4x4Clarity",
+      "url": "https://4x4clarity.com",
+      "tooltip": "Project clarity in seconds, not hours",
+      "external": true
+    },
+    "love2hug": {
+      "label": "Love2Hug",
+      "url": "https://love2hug.com",
+      "tooltip": "Converts your Lovable code into Huggable code",
+      "external": true
+    },
+    "getdashboard": {
+      "label": "GetDashboard.net",
+      "url": "https://getdashboard.net",
+      "tooltip": "All orgs, repos, issues & PRs in a single view",
+      "external": true
+    }
+  },
+  "footer": {
+    "copyright": {
+      "year": "2026",
+      "company": "Hypercart"
+    },
+    "links": {
+      "terms": {
+        "label": "Terms",
+        "url": "/tos/",
+        "external": false
+      },
+      "privacy": {
+        "label": "Privacy",
+        "url": "/privacy/",
+        "external": false
+      },
+      "system": {
+        "label": "System",
+        "url": "/system/",
+        "external": false
+      },
+      "help": {
+        "label": "Help",
+        "url": "/help/",
+        "external": false
+      }
+    }
+  }
+}
+

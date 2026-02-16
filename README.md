@@ -2,7 +2,7 @@
 ## Syndicated Footer Component - GitHub, React, WordPress
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE.md)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](CHANGELOG.md)
 
 A reusable, themeable footer component for the 4x4Sys network (Hypercart, 4x4Clarity, Love2Hug, GetDashboard). Available in multiple formats for easy integration across different platforms.
 
@@ -34,6 +34,7 @@ wp-syndicated-footer-poc/
 ├── AUDIT.md                           # Documentation audit report
 ├── footer.html                        # Plain HTML footer (source markup)
 ├── footer.css                         # Stylesheet (namespaced .hc-*)
+├── footer-data.json                   # Syndicated link data (v1.2.0+)
 ├── footer-config.json                 # Example config for React/Lovable (v1.1.0+)
 ├── hypercart-network-footer.php       # WordPress plugin w/ CDN fallback
 ├── lovable-footer-guide.md            # React/Lovable integration prompt
@@ -214,9 +215,17 @@ After implementation, verify:
 
 ---
 
-## ⚙️ Configuration (React/Lovable v1.1.0+)
+## ⚙️ Configuration (React/Lovable v1.2.0+)
 
-The React/Lovable implementation supports per-site customization via `public/footer-config.json`:
+**NEW in v1.2.0:** Footer content (URLs, labels, tooltips) is now syndicated from CDN via `footer-data.json`!
+
+The React/Lovable implementation fetches:
+1. **Syndicated link data** from CDN (`footer-data.json`) — URLs, labels, tooltips
+2. **Local visibility config** from `public/footer-config.json` (optional) — which links to show/hide
+
+### Local Configuration (Optional)
+
+Create `public/footer-config.json` to customize which links are shown:
 
 ```json
 {
@@ -234,8 +243,21 @@ The React/Lovable implementation supports per-site customization via `public/foo
 }
 ```
 
+### Syndicated Content (v1.2.0+)
+
+The footer content is automatically fetched from:
+```
+https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer-data.json
+```
+
+This means:
+- ✅ **Update once, deploy everywhere** — Change `footer-data.json`, all sites update
+- ✅ **No rebuilds needed** — Content updates without redeploying React apps
+- ✅ **Backward compatible** — Existing v1.1.0 sites continue working with hardcoded defaults
+
 **Features:**
-- **Toggle individual links** — Hide links not needed on specific sites
+- **Syndicated content** — Link URLs, labels, and tooltips fetched from CDN
+- **Toggle individual links** — Hide links not needed on specific sites (local config)
 - **Disable tooltips** — Set `showTooltips: false` to work around z-index conflicts
 - **Runtime updates** — Change config without rebuilding the React app
 - **Graceful fallback** — Component works without config file (all links shown by default)
