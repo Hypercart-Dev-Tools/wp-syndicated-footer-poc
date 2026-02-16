@@ -3,10 +3,11 @@
  * Plugin Name: Hypercart Network Footer
  * Plugin URI:  https://github.com/Hypercart-Dev-Tools/wp-syndicated-footer-poc
  * Description: Injects the syndicated 4x4Sys network footer across all pages. Loads styles and markup from GitHub CDN for automatic updates.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Hypercart
  * Author URI:  https://hypercart.com
- * License:     MIT
+ * License:     Apache-2.0
+ * License URI: https://www.apache.org/licenses/LICENSE-2.0
  * Text Domain: hc-footer
  */
 

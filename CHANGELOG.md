@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-02-16
+
+### Added
+- **Lovable/React configuration system** — `footer-config.json` for per-site customization
+- **Tokenized link toggles** — Show/hide individual links (clarity, love2hug, getdashboard, network, terms, privacy, system, help)
+- **Tooltip visibility toggle** — `showTooltips` flag to disable hover tooltips (useful for z-index conflicts)
+- **Runtime config fetching** — Component fetches config from `/public/footer-config.json` on mount
+- **Default fallback config** — Component works without config file (all links shown by default)
+- **Example config file** — `footer-config.json` template included in repo
+
+### Changed
+- **Lovable integration guide** — Updated with config-based approach and conditional rendering examples
+- **Step numbering** — Added Step 2 for config file creation in Lovable guide
+- **Architecture documentation** — Added "Implementation Notes" section with verified decisions (simple state management, component location, error handling)
+- **Troubleshooting section** — Added common issues and fixes based on real implementation
+- **License** — Changed from MIT to Apache 2.0
+- **WordPress plugin** — Updated version to 1.1.0 and license header to Apache-2.0
+- **README badges** — Added license and version badges
+
+### Documentation
+- Updated `lovable-footer-guide.md` with configuration instructions
+- Added testing checklist for config validation
+- Added example config with all options documented
+- Added `LICENSE.md` with full Apache 2.0 license text
+- Updated `README.md` with license badges and references
+
+### Notes
+- This is an **MVP release** focused on deployment at scale
+- Future enhancements (link URL overrides, custom labels, link ordering) tracked in ROADMAP.md
+- Config approach allows updates without rebuilding React apps
+
+---
+
 ## [1.0.0] - 2026-02-15
 
 ### Added
@@ -70,9 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Future Versions (Planned)
 
-### [1.1.0] - Planned
+### [1.2.0] - Planned
 - [ ] Dark/Light theme toggle
-- [ ] Customizable product pills (via data attributes)
 - [ ] Footer region variations (header version, sidebar version)
 - [ ] Analytics integration hooks
 - [ ] A11y enhancements (ARIA labels, keyboard navigation)
@@ -82,6 +114,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] CSS-in-JS alternative (for Next.js)
 - [ ] Web Components version
 - [ ] ShadCN/ui integration
+
+See `ROADMAP.md` for additional enhancement ideas.
 
 ---
 

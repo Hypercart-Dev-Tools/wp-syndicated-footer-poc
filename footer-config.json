@@ -1,0 +1,14 @@
+{
+  "showTooltips": true,
+  "links": {
+    "clarity": true,
+    "love2hug": true,
+    "getdashboard": true,
+    "network": true,
+    "terms": true,
+    "privacy": true,
+    "system": true,
+    "help": true
+  }
+}
+

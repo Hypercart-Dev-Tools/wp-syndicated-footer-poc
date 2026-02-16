@@ -1,7 +1,12 @@
 # Hypercart / 4x4Sys Network Footer
 ## Syndicated Footer Component - GitHub, React, WordPress
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](CHANGELOG.md)
+
 A reusable, themeable footer component for the 4x4Sys network (Hypercart, 4x4Clarity, Love2Hug, GetDashboard). Available in multiple formats for easy integration across different platforms.
+
+**Licensed under [Apache License 2.0](LICENSE.md)** — Free to use, modify, and distribute.
 
 ---
 
@@ -23,10 +28,13 @@ Choose your implementation method:
 ```
 wp-syndicated-footer-poc/
 ├── README.md                          # This file
+├── LICENSE.md                         # Apache 2.0 license
 ├── CHANGELOG.md                       # Version history & breaking changes
+├── ROADMAP.md                         # Future enhancement ideas
 ├── AUDIT.md                           # Documentation audit report
 ├── footer.html                        # Plain HTML footer (source markup)
 ├── footer.css                         # Stylesheet (namespaced .hc-*)
+├── footer-config.json                 # Example config for React/Lovable (v1.1.0+)
 ├── hypercart-network-footer.php       # WordPress plugin w/ CDN fallback
 ├── lovable-footer-guide.md            # React/Lovable integration prompt
 └── wordpress-footer-guide.md          # WordPress WPCode integration steps
@@ -200,9 +208,49 @@ After implementation, verify:
 
 ## 📚 Implementation Guides
 
-- **[Lovable/React Guide](lovable-footer-guide.md)** — Step-by-step prompt for AI-assisted React component generation
+- **[Lovable/React Guide](lovable-footer-guide.md)** — Step-by-step prompt for AI-assisted React component generation (includes config-based customization)
 - **[WordPress Guide](wordpress-footer-guide.md)** — WPCode snippets for WordPress sites
 - **[HTML/CSS Only](#html--css-setup)** — Manual integration for static sites
+
+---
+
+## ⚙️ Configuration (React/Lovable v1.1.0+)
+
+The React/Lovable implementation supports per-site customization via `public/footer-config.json`:
+
+```json
+{
+  "showTooltips": true,
+  "links": {
+    "clarity": true,
+    "love2hug": true,
+    "getdashboard": true,
+    "network": true,
+    "terms": true,
+    "privacy": true,
+    "system": false,
+    "help": false
+  }
+}
+```
+
+**Features:**
+- **Toggle individual links** — Hide links not needed on specific sites
+- **Disable tooltips** — Set `showTooltips: false` to work around z-index conflicts
+- **Runtime updates** — Change config without rebuilding the React app
+- **Graceful fallback** — Component works without config file (all links shown by default)
+
+**Example use cases:**
+- Hide "System" and "Help" links on marketing sites
+- Disable tooltips if they conflict with existing UI elements
+- Show only product pills on landing pages
+
+See [Lovable Guide](lovable-footer-guide.md) for full configuration documentation.
+
+**Future enhancements** (see [ROADMAP.md](ROADMAP.md)):
+- Link URL/label overrides
+- Custom link additions
+- Theme color customization
 
 ---
 
@@ -259,7 +307,23 @@ Copy the prompt from lovable-footer-guide.md into Lovable interface
 
 ## 📄 License
 
-MIT License — use freely in personal or commercial projects.
+**Apache License 2.0**
+
+Copyright 2026 Hypercart / 4x4Sys Network
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+**TL;DR:** Free to use, modify, and distribute in personal or commercial projects. See [LICENSE.md](LICENSE.md) for full terms.
 
 ---
 
@@ -268,5 +332,6 @@ MIT License — use freely in personal or commercial projects.
 - **GitHub:** https://github.com/Hypercart-Dev-Tools/wp-syndicated-footer-poc
 - **jsDelivr CDN:** https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/
 - **Issues:** https://github.com/Hypercart-Dev-Tools/wp-syndicated-footer-poc/issues
+- **License:** [Apache 2.0](LICENSE.md)
 - **Main Site:** https://hypercart.com
 
