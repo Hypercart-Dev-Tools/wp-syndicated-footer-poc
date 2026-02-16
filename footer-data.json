@@ -20,7 +20,7 @@
     },
     "getdashboard": {
       "label": "GetDashboard.net",
-      "url": "https://getdashboard.net",
+      "url": "https://GetDashboard.net",
       "tooltip": "All orgs, repos, issues & PRs in a single view",
       "external": true
     }

@@ -6,20 +6,47 @@
 
 ---
 
+## 🎯 Full Syndication Approach (Recommended)
+
+This guide implements a **fully syndicated footer** where both **content and styles** are managed centrally:
+
+✅ **CSS from CDN** — Styles update automatically across all sites
+✅ **Content from CDN** — Link URLs, labels, and tooltips update automatically (v1.2.0+)
+✅ **Local config optional** — Only needed to hide specific links per-site
+✅ **Zero maintenance** — Update once in GitHub, all sites update automatically
+
+**Why full syndication?**
+- No manual updates needed when links change
+- No rebuilds or redeployments required
+- Consistent branding across all 4x4Sys network sites
+- Single source of truth for all footer content
+
+---
+
 ## Step 1: Add the CSS file to your project
 
-**Option A — Local copy:** Upload `footer.css` to your project's `/public` directory (or `/src/styles/` if you prefer bundled CSS).
+**⭐ RECOMMENDED — Full Syndication (CSS from CDN):**
 
-**Option B — CDN (recommended for syndication):** Skip the upload and reference the hosted URL directly. Add this to your `index.html` `<head>`:
+Add this to your `index.html` `<head>`:
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer.css">
 ```
 
+**Why use CDN?**
+- ✅ **Automatic updates** — CSS changes propagate to all sites instantly
+- ✅ **No rebuilds needed** — Style updates without redeploying your app
+- ✅ **True syndication** — Combined with v1.2.0 content syndication, you get a fully managed footer
+- ✅ **Single source of truth** — All sites stay in sync with the canonical styles
+
+**Alternative — Local copy (not recommended):**
+
+If you absolutely need a local copy (e.g., offline development, strict CSP policies), upload `footer.css` to your project's `/public` directory. **Note:** You'll miss out on automatic style updates.
+
 Source files:
+- **CDN (recommended):** https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer.css
 - GitHub: https://github.com/Hypercart-Dev-Tools/wp-syndicated-footer-poc/blob/main/footer.css
 - Raw: https://raw.githubusercontent.com/Hypercart-Dev-Tools/wp-syndicated-footer-poc/main/footer.css
-- CDN: https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer.css
 
 ---
 
@@ -91,11 +118,11 @@ Paste this prompt into Lovable:
 > <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 > ```
 >
-> **CSS:** Import the footer styles. Either use a local copy or link the CDN version in `index.html`:
+> **CSS:** Add the syndicated CSS from CDN to `index.html` `<head>`:
 > ```html
 > <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer.css">
 > ```
-> Do not use Tailwind for this component — it uses its own namespaced BEM styles prefixed with `hc-`.
+> **Important:** Use the CDN link (not a local copy) to enable automatic style updates. Do not use Tailwind for this component — it uses its own namespaced BEM styles prefixed with `hc-`.
 >
 > **Configuration (v1.2.0 - Syndicated Data):** The component should fetch TWO config files on mount:
 >

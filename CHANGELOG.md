@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Documentation
 - Updated `lovable-footer-guide.md` with v1.2.0 syndicated data approach
+- **Emphasized full syndication** — Documentation now strongly recommends CDN for both CSS and content
+- Added prominent callout about full syndication benefits at top of Lovable guide
+- Updated README.md Quick Start table to show syndication levels per platform
+- Added "Full Syndication (Recommended)" section to README.md
+- Updated CDN Syndication section with v1.2.0 URLs and best practices
 - Added `footer-data.json` to repository structure
 - Updated testing checklist to include CDN data verification
 - Added troubleshooting section for syndicated data loading
