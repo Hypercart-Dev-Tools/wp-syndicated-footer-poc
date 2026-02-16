@@ -5,7 +5,7 @@
 
 ## Step 1: Add the CSS file to your project
 
-**Option A — Local copy:** Upload `hc-footer.css` to your project's `/public` directory (or `/src/styles/` if you prefer bundled CSS).
+**Option A — Local copy:** Upload `footer.css` to your project's `/public` directory (or `/src/styles/` if you prefer bundled CSS).
 
 **Option B — CDN (recommended for syndication):** Skip the upload and reference the hosted URL directly. Add this to your `index.html` `<head>`:
 
@@ -68,13 +68,13 @@ Paste this prompt into Lovable:
 >         © 2026 <strong>Hypercart</strong> — Part of the <a href="https://4x4sys.com" target="_blank" rel="noopener">4x4Sys.com</a> network
 >       </div>
 >       <nav className="hc-footer__links" aria-label="Footer navigation">
->         <a href="/tos" className="hc-footer__link">Terms</a>
->         <span className="hc-footer__sep">·</span>
->         <a href="/privacy" className="hc-footer__link">Privacy</a>
->         <span className="hc-footer__sep">·</span>
->         <a href="/system" className="hc-footer__link">System</a>
->         <span className="hc-footer__sep">·</span>
->         <a href="/help" className="hc-footer__link">Help</a>
+       <a href="/tos/" className="hc-footer__link">Terms</a>
+        <span className="hc-footer__sep">·</span>
+        <a href="/privacy/" className="hc-footer__link">Privacy</a>
+        <span className="hc-footer__sep">·</span>
+        <a href="/system/" className="hc-footer__link">System</a>
+        <span className="hc-footer__sep">·</span>
+        <a href="/help/" className="hc-footer__link">Help</a>
 >       </nav>
 >     </div>
 >   </div>
@@ -96,7 +96,8 @@ After Lovable processes the prompt, check:
 - [ ] Lime accent line visible at the top of the footer
 - [ ] Product pill tooltips appear on hover (desktop)
 - [ ] Responsive layout works on mobile (pills and links stack)
-- [ ] Internal links (`/tos`, `/privacy`, `/system`, `/help`) use client-side routing (no full reload)
+- [ ] Internal links (`/tos/`, `/privacy/`, `/system/`, `/help/`) use client-side routing (no full reload)
+- [ ] Click each link and watch the network tab — should show no full page reload for internal links
 
 **Note on internal links:** If your app uses `react-router`, you may want Lovable to convert the internal `<a>` tags to `<Link>` components. Add this to your prompt:
 > Convert the internal links (Terms, Privacy, System, Help) to react-router `<Link to="...">` components. Keep external links as regular `<a>` tags.

@@ -142,3 +142,59 @@ Add this as a separate WPCode snippet (Type: Universal, Location: Site Wide Head
 - [ ] Mobile layout stacks correctly
 - [ ] Links open correctly (external = new tab, internal = same tab)
 - [ ] No duplicate footers (theme footer hidden if needed)
+
+---
+
+## Troubleshooting & Error Handling
+
+### CDN Unreachable (Remote Fetch Fails)
+The plugin automatically handles CDN outages:
+- **What happens:** If `cdn.jsdelivr.net` is down, the plugin falls back to hardcoded HTML in `hc_footer_fallback_html()`
+- **Result:** Footer still renders with cached or fallback content
+- **Testing:** Temporarily block `cdn.jsdelivr.net` in your firewall or DevTools → Network conditions → Offline mode
+- **Monitoring:** Check WordPress error logs for failed remote requests
+
+### Font Loading Failures
+- **Check:** DevTools → Network tab → filter `fonts.googleapis.com`
+- **Fallback:** CSS includes font-family fallback stack (monospace, sans-serif)
+- **Fix:** Ensure Google Fonts CDN is not blocked by privacy extensions or corporate firewalls
+
+### Footer Styles Not Applying
+**Problem:** Footer appears but unstyled.
+- **Verify:** CSS file loads with status 200 in DevTools → Network
+- **Check:** No theme CSS overriding `.hc-footer` styles
+- **Fix:** Try using `!important` in the CSS, or increase specificity in the WPCode snippet
+- **CDN:** If local copy fails, switch to CDN URL:
+  ```html
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Hypercart-Dev-Tools/wp-syndicated-footer-poc@main/footer.css">
+  ```
+
+### Duplicate Footers Display
+- **Cause:** Theme has its own native footer
+- **Solution:** Hide theme footer with CSS snippet (Type: Normal, Location: Site Wide Footer):
+  ```html
+  <style>
+    footer:not(.hc-footer),
+    .site-footer:not(.hc-footer),
+    .footer:not(.hc-footer) {
+      display: none !important;
+    }
+  </style>
+  ```
+
+### Cache Not Clearing
+**Problem:** Old footer persists after update.
+- **Manual purge:** Plugins page → "Hypercart Network Footer" → click "Purge Footer Cache" link
+- **Or in code:** `delete_transient( 'hc_footer_html' );`
+- **Disable caching:** Set `HC_FOOTER_CACHE_TTL` to `0` in plugin (refetch every page load)
+- **Default:** Cache TTL is 3600 seconds (1 hour)
+
+### Links Not Working
+- **External links:** Verify they open in new tab (should have `target="_blank" rel="noopener"`)
+- **Internal links:** Check path structure (`/tos/`, `/privacy/`, `/system/`, `/help/` with trailing slashes)
+- **Test:** Right-click each link → Inspect → verify `href` attribute
+
+### Performance Impact
+- **Slow page loads:** Increase cache TTL or switch to version pinning (@v1.0.0 instead of @main)
+- **CDN latency:** jsDelivr is globally distributed; check your region's performance at https://www.jsdelivr.com/
+- **Fallback performance:** Hardcoded fallback HTML loads instantly (no network call if CDN fails)
